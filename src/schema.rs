@@ -4,7 +4,6 @@ diesel::table! {
     tasks (id) {
         id -> Uuid,
         job_type -> Varchar,
-        number -> Int4,
         status -> Varchar,
         result -> Nullable<Varchar>,
         lock_version -> Int4,
