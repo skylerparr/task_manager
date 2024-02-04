@@ -49,9 +49,9 @@ impl Actor for EventLoop {
     type Context = SyncContext<Self>;
 
     fn started(&mut self, _ctx: &mut Self::Context) {
-        access::reset_stale_tasks();
         System::new().block_on(async {
             loop {
+                access::reset_stale_tasks();
                 let pending_tasks = access::get_pending_tasks();
                 if pending_tasks.is_empty() {
                     actix_rt::time::sleep(std::time::Duration::from_millis(100)).await;

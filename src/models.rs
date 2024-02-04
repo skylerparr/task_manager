@@ -25,7 +25,6 @@ pub struct TaskStatusUpdate<'a> {
 pub struct Task {
     pub id: Uuid,
     pub job_type: String,
-    pub number: i32,
     pub status: String,
     pub result: Option<String>,
     pub lock_version: i32,
