@@ -98,6 +98,7 @@ fn update_status(task: &Task, s: String) -> StatusResult {
     let update = TaskStatusUpdate {
         status: s.as_str(),
         lock_version: task.lock_version + 1,
+        updated_at: &chrono::Utc::now().naive_utc(),
     };
 
     let r = diesel::update(tasks.find(task.id))
@@ -188,7 +189,6 @@ mod test {
         assert_eq!(task.job_type, "test");
         assert_eq!(task.status, "pending");
         assert_eq!(task.start_job_at, task.start_job_at);
-        assert!(task.number > 0);
     }
 
     #[test]

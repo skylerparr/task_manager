@@ -17,6 +17,7 @@ pub struct NewTask<'a> {
 pub struct TaskStatusUpdate<'a> {
     pub lock_version: i32,
     pub status: &'a str,
+    pub updated_at: &'a chrono::NaiveDateTime,
 }
 
 #[derive(Queryable, Selectable, Debug)]

@@ -13,3 +13,4 @@ CREATE INDEX tasks_job_type ON tasks (job_type);
 CREATE INDEX tasks_status ON tasks (status);
 CREATE INDEX tasks_start_job_at ON tasks (start_job_at);
 CREATE INDEX tasks_updated_at ON tasks (updated_at);
+CREATE INDEX tasks_lock_version ON tasks (lock_version);
